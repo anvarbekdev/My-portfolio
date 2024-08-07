@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #040070FF;
+  --box-color: #03004FFF;
+  --font-size: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: var(--font-size);
+  line-height: 1.5;
+  color: #bbb;
+  background: var(--bg-color);
+  letter-spacing: 0;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.box-color {
+  background: var(--box-color);
+}
+.drawer-toggle:checked ~ .drawer-side > .drawer-overlay {
+  position: sticky;
+  top: 0px;
+  place-self: stretch;
+  background-color: hsla(0, 0%, 0%, 0);
+}
+
+.line::after {
+  content: "";
+  width: 1px;
+  bottom: 0;
+  height: 50px;
+  background: #bbb;
+  display: inline-block;
+  transform: rotate(90deg) translateX(20px) translateY(-30px);
+}
+
+/* ================================================ */
+
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  height: auto;
+}
+.my-masonry-grid_column {
+  background-clip: padding-box;
+}
+
+/* ===== =========================================== */
+/* ImageSlider */
+.slider {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 3rem;
+  color: #000;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}
+
+/* ===== =========================================== */
+.image_how:hover .icons_how {
+  display: block;
+}
+.image_how .icons_how .icon_item:hover {
+  opacity: 1;
+}
+/* ===== =========================================== */
+
+/* ================================================ */
+.transition_cus {
+  /* transition-property: all; */
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-name: ani;
+}
+@keyframes ani {
+  from {
+    transform: scale(-2);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+/* ================================================ */
+
+.active {
+  color: #00a552;
+  /* padding: 1rem; */
+  /* border-radius: 50%; */
+}
+
+@layer base {
+  body {
+    @apply font-secondary text-lg leading-8;
+  }
+  .h2 {
+    @apply font-primary text-[32px] mb-6 tracking-[10%] uppercase;
+  }
+  .h3 {
+    @apply font-primary font-semibold text-[26px] mb-6 leading-[46px];
+  }
+  .h4 {
+    @apply font-primary font-medium text-[18px] my-6 leading-[20px];
+  }
+  .h5 {
+    @apply font-primary font-medium text-[15px] text-[#eee] my-4 leading-[20px];
+  }
+  .btn {
+    @apply rounded-full font-primary text-white font-medium;
+  }
+  .btn-sm {
+    @apply h-[48px] px-6 text-sm;
+  }
+  .btn-lg {
+    @apply h-[56px] px-10 text-base;
+  }
+  .btn-link {
+    @apply text-base;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r text-transparent bg-clip-text from-[#42A6E3] to-[#FF56F6] font-bold font-primary hover:from-[#FF56F6] hover:to-[#42A6E3];
+  }
+  .section {
+    @apply py-8 lg:py-24 lg:h-screen flex items-center;
+  }
+}
